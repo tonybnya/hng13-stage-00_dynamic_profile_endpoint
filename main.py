@@ -5,9 +5,19 @@ Author      : @tonybnya
 """
 
 from fastapi import FastAPI
+from pydantic import BaseModel
 
-ROOT_PATH: str = "/api/v1"
 app: FastAPI = FastAPI()
+
+
+class UserInfo(BaseModel):
+    """
+    Definition of the nested user object
+    """
+
+    email: str
+    name: str
+    stack: str
 
 
 @app.get("/")
