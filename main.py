@@ -4,6 +4,7 @@ Description : Main application
 Author      : @tonybnya
 """
 
+from datetime import datetime
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -18,6 +19,17 @@ class UserInfo(BaseModel):
     email: str
     name: str
     stack: str
+
+
+class ProfileResponse(BaseModel):
+    """
+    Definition of the response model
+    """
+
+    status: str
+    user: UserInfo
+    timestamp: datetime
+    fact: str
 
 
 @app.get("/")
