@@ -6,7 +6,7 @@ Author      : @tonybnya
 
 from datetime import datetime
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 app: FastAPI = FastAPI()
 
@@ -16,7 +16,7 @@ class UserInfo(BaseModel):
     Definition of the nested user object
     """
 
-    email: str
+    email: EmailStr
     name: str
     stack: str
 
